@@ -1,0 +1,37 @@
+REQUIRED LIBRARIES: 
+	numpy
+	pandas
+	matplotlib
+	scipy
+	sys
+	xml
+	sklearn
+	osmnx
+	networkx
+	folium
+
+TO RUN: 
+	A graph and dataframe must be created before routes may be generated (these are already provided but may be generated with create_graph.py and create_dataframe.py)
+		python3 create_graph.py
+		python3 create_dataframe.py amenities-vancouver.json.gz
+	routes may be generated with route.py
+		python3 route.py landmarks_data.csv graph.osm origin_lat origin_lon destination_lat destination_lon output_folder num_stops max_distance num_routes
+		arguments:
+			landmarks_data.csv = 
+			graph.osm = 
+			origin_lat, origin_lon = the position of the user when they wish to begin a journey, specified with latitude and longitude
+			destination_lat destination_lon = the users destination, specified with latitude and longitude
+			output_folder = the folder in which routes will be generated
+			num_stops = the number of amenities the user wishes to be taken past on their journey
+			max_distance_multiplier = how far the user is willing to go out of their way, specified by a multiplier of the total distance
+			num_routes = the number of routes the user wishes to generate
+		example:
+			python3 route.py landmarks_data.csv graph.osm 49.26348236022651 -123.20673804503969 49.26751502457303 -123.07181219914847 output 5 1.5 5
+
+DEMO:
+	I have written 2 demo files which can be run with the following commands
+		python3 demo1.py
+		python3 demo2.py
+	These demos indicate which inputs they use, when complete the results can be verified in the output folder	
+
+
